@@ -1,11 +1,50 @@
 .inputWrapper {
-    margin: 2rem;
+  margin: 2rem;
 }
 
 .input {
-    width: 40%;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 1.2rem;
+  width: 40%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  outline: none;
 }
 
+.inputError {
+  border: 1px solid red;
+  width: 40%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  outline: none;
+}
+
+.errorText {
+    color: red;
+    font-size: 1rem;
+    padding : 10px; 
+}
+
+.shake {
+  width: 40%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  outline: none;
+  animation: shakeInput 0.2s linear 0s 3;
+}
+
+@keyframes shakeInput {
+  0% {
+    margin-left: 0rem;
+  }
+  25% {
+    margin-left: 0.5rem;
+  }
+  75% {
+    margin-left: -035rem;
+  }
+  100% {
+    margin-left: 0rem;
+  }
+}
