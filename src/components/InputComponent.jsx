@@ -10,7 +10,7 @@ import styles from "../style/input-component.module.css";
 import { FormContext } from "../context/FormContext";
 
 export default forwardRef(function InputComponent(
-  { inputType, inputPlaceholder, inputId, inputName, label, valid },
+  { inputType, inputPlaceholder, inputId, inputName, label, checkOnBlur },
   ref
 ) {
   const { formInput, setFormInput } = useContext(FormContext);
@@ -53,9 +53,10 @@ export default forwardRef(function InputComponent(
           setText(event.target.value);
           setFormInput({ ...formInput, [label]: event.target.value });
         }}
-        ref={localRef}
+        ref={localRef} 
+        onBlur={checkOnBlur}
       /> 
-      {isValid && <p className={styles.errorText}>{label} is invalid</p>}
+      {!isValid && <p className={styles.errorText}>{label} is invalid</p>}
     </div>
   );
 });

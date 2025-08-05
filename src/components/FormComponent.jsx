@@ -12,13 +12,19 @@ export default function FormComponent() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    handleInvalidEmail();
+    handleInvalidPassword();
+  };
 
+  const handleInvalidEmail = () => {
     if (!emailValidator(formInput.email)) {
       emailRef.current.focus();
       emailRef.current.invalid();
       emailRef.current.shake();
     }
+  };
 
+  const handleInvalidPassword = () => {
     if (!passwordValidator(formInput.password)) {
       passwordRef.current.focus();
       passwordRef.current.invalid();
@@ -36,6 +42,7 @@ export default function FormComponent() {
         inputPlaceholder={"Enter the Email here..."}
         label={"email"}
         ref={emailRef}
+        checkOnBlur={handleInvalidEmail}
       />
       <InputComponent
         inputId={"user-password"}
@@ -44,6 +51,7 @@ export default function FormComponent() {
         inputPlaceholder={"Enter the Password here..."}
         label={"password"}
         ref={passwordRef}
+        checkOnBlur={handleInvalidPassword}
       />
       <ButtonComponent buttonText={"Submit"} />
     </form>
